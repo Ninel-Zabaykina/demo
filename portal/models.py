@@ -17,6 +17,7 @@ class Portal(models.Model):
         ('новая', 'Новая')
     )
     title = models.CharField(max_length=250)
+    author = models.ForeignKey(User, related_name='app_portal', on_delete=models.CASCADE)
     body = models.TextField()
     publish = models.DateTimeField(default=timezone.now)
     status = models.CharField(max_length=10, choices=STATUS, default='Новая')
