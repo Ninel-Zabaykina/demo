@@ -3,8 +3,7 @@ from .models import Portal
 
 
 def app_list(request):
-    app = Portal.publish.all()
-    return render(request, 'portal/app/list.html', {'app': app})
+    return render(request, 'portal/app/list.html', {})
 
 
 def app_detail(request, year, month, day, app):
