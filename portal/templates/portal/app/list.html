@@ -8,17 +8,14 @@
             <h2>Расскажите нам о проблемах в городе</h2>
         </div>
 
+    {% for app in apps %}
         <div>
-            <p>published: 14.06.2014, 12:14</p>
-            <h2><a href="">Заявка1</a></h2>
-            <p>тут жалуемся бла бла бла</p>
+            <p>published: {{ app.publish }}</p>
+            <h1><a href="">{{ app.title }}</a></h1>
+            <p>{{ app.body|linebreaksbr }}</p>
         </div>
+    {% endfor %}
 
-         <div>
-            <p>published: 14.06.2014, 12:14</p>
-            <h2><a href="">Заявка2</a></h2>
-            <p>тут жалуемся бла бла бла</p>
-        </div>
 
 
     </body>

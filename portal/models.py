@@ -23,3 +23,6 @@ class Portal(models.Model):
     status = models.CharField(max_length=10, choices=STATUS, default='Новая')
     categories = models.ManyToManyField(Categories, help_text="Укажите категорию заявки")
     photo = models.ImageField(upload_to='images/', height_field=None, width_field=None, max_length=100, null=True)
+
+    def __str__(self):
+        return self.title
