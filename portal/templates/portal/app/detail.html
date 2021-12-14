@@ -1,10 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'portal/base.html' %}
 
-</body>
-</html>
+{% block content %}
+    <div class="app">
+        {% if app.publish %}
+            <div class="date">
+                {{ app.publish }}
+            </div>
+        {% endif %}
+        <h1>{{ app.title }}</h1>
+        <p>{{ app.body|linebreaksbr }}</p>
+    </div>
+{% endblock %}

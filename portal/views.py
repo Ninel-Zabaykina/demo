@@ -8,10 +8,6 @@ def app_list(request):
     return render(request, 'portal/app/list.html', {'apps': apps})
 
 
-def app_detail(request, year, month, day, app):
-    app = get_object_or_404(Portal, title=app,
-                            status='publish',
-                            publish__year=year,
-                            publish__month=month,
-                            publish__day=day)
+def app_detail(request, pk):
+    app = get_object_or_404(Portal, pk=pk)
     return render(request, 'portal/app/detail.html', {'app': app})

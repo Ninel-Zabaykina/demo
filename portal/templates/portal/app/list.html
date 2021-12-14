@@ -1,34 +1,13 @@
-{% load static %}
-<html>
-    <head>
-        <title>Городской портал</title>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="{% static 'css/portal.css' %}">
-    </head>
-    <body>
-        <div class="page-header">
-            <h1><a href="/">Городской портал</a></h1>
-            <h3>Расскажите нам о проблемах в городе</h3>
-        </div>
+{% extends 'portal/base.html' %}
 
-        <div class="content container">
-            <div class="row">
-                <div class="col-md-8">
-                    {% for app in apps %}
-                        <div class="app">
-                            <div class="date">
-                                <p>Опубликовано: {{ app.publish }}</p>
-                            </div>
-                            <h1><a href="">{{ app.title }}</a></h1>
-                            <p>{{ app.body|linebreaksbr }}</p>
-                        </div>
-                    {% endfor %}
-                </div>>
+{% block content %}
+    {% for app in apps %}
+        <div class="app">
+            <div class="date">
+                <p>Опубликовано: {{ app.publish }}</p>
             </div>
+                <h1><a href="{% url 'app_detail' pk=app.pk %}">{{ app.title }}</a></h1>
+                <p>{{ app.body|linebreaksbr }}</p>
         </div>
-
-
-
-    </body>
-</html>
+    {% endfor %}
+{% endblock %}
