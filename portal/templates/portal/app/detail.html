@@ -7,7 +7,9 @@
                 {{ app.publish }}
             </div>
         {% endif %}
+        {% if user.is_authenticated %}
         <a class="btn btn-default" href="{% url 'app_edit' pk=app.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        {% endif %}
         <h1>{{ app.title }}</h1>
         <p>{{ app.body|linebreaksbr }}</p>
     </div>

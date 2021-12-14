@@ -4,7 +4,7 @@
     {% for app in apps %}
         <div class="app">
             <div class="date">
-                <p>Опубликовано: {{ app.publish }}</p>
+                <p>Опубликовано: {{ app.publish }} {{ app.author }}</p>
             </div>
                 <h1><a href="{% url 'app_detail' pk=app.pk %}">{{ app.title }}</a></h1>
                 <p>{{ app.body|linebreaksbr }}</p>

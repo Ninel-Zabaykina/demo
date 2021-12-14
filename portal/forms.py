@@ -6,4 +6,4 @@ class AppForm(forms.ModelForm):
 
     class Meta:
         model = Portal
-        fields = ('title', 'body',)
+        fields = ('title', 'body', 'categories', 'photo',)
